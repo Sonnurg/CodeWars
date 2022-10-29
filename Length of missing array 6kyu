@@ -1,0 +1,22 @@
+//DESCRIPTION:
+//You get an array of arrays.
+//If you sort the arrays by their length, you will see, that their length-values are consecutive.
+//But one array is missing!
+//You have to write a method, that return the length of the missing array.
+
+
+//my solution
+
+function getLengthOfMissingArray(arr) {
+let sorted=(arr || []).map(e=>e? e.length : 0)
+              .sort((a,b)=>a-b)
+  if(sorted.includes(0)){
+    return 0
+  }
+  
+  for(let i=0;i<sorted.length;i++){
+  
+  if (sorted[i] + 1 < sorted[i+ 1]) return sorted[i]+1
+  }
+return 0
+     }
