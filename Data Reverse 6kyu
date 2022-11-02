@@ -1,0 +1,13 @@
+//A stream of data is received and needs to be reversed.
+
+//Each segment is 8 bits long, meaning the order of these segments needs to be reversed
+//The total number of bits will always be a multiple of 8.
+
+//my solution
+function dataReverse(data) {
+let arr=[]
+for(let i=0;i<data.length;i+=8){
+  arr.push(data.slice(i,i+8))
+}
+  return arr.reverse().flat()
+}
