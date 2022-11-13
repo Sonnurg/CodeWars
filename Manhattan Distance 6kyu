@@ -18,3 +18,9 @@ function manhattanDistance(pA, pB){
   }
   return dis
 }
+
+
+//solution 2
+function manhattanDistance(pA, pB){
+  return Math.abs(pA[0]-pB[0])+Math.abs(pA[1]-pB[1])
+}
