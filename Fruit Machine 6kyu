@@ -1,0 +1,44 @@
+//1. There are always exactly three reels
+
+//2. Each reel has 10 different items.
+
+//3. The three reel inputs may be different.
+
+//4. The spin array represents the index of where the reels finish.
+
+//5. The three spin inputs may be different
+
+//6. Three of the same is worth more than two of the same
+
+//7. Two of the same plus one "Wild" is double the score.
+
+//8. No matching items returns 0.
+
+// My solution
+function fruit(reels, spins){
+ let score=0
+ const points={Wild:10,'Star':9 ,'Bell':8, 'Shell':7, 'Seven':6, 'Cherry':5, 'Bar':4,'King':3,'Queen':2, 'Jack':1}
+ let result=[]
+
+ for(let i=0;i<spins.length;i++){
+  result.push( reels[i][spins[i]])
+ }
+if(result.filter(x=>x==='Wild').length==2){
+  score+=10
+}else if(result.filter(x=>x==='Wild').length==3){
+  score+=100
+}else {
+  for(let i =0;i<11;i++){
+  if(result.filter(x=>x===Object.keys(points)[i]).length==3){
+ score+= Object.values(points)[i]*10
+}else if(result.filter(x=>x===Object.keys(points)[i]).length==2 && result.includes('Wild')){
+ score+= Object.values(points)[i]*2
+}else if(result.filter(x=>x===Object.keys(points)[i]).length==2 && !result.includes('Wild')){
+ score+= Object.values(points)[i]
+}
+ }
+}
+ 
+
+return score
+}
