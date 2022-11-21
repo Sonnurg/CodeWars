@@ -1,0 +1,45 @@
+/*
+DESCRIPTION:
+Write a function that returns a (custom) FizzBuzz sequence of the numbers 1 to 100.
+
+The function should be able to take up to 4 arguments:
+
+The 1st and 2nd arguments are strings, "Fizz" and "Buzz" by default;
+The 3rd and 4th arguments are integers, 3 and 5 by default.
+Thus, when the function is called without arguments, it will return the classic FizzBuzz sequence up to 100:
+
+[ 1, 2, "Fizz", 4, "Buzz", "Fizz", 7, ... 14, "FizzBuzz", 16, 17, ... 98, "Fizz", "Buzz" ]
+When the function is called with (up to 4) arguments, it should return a custom FizzBuzz sequence, for example: 
+*/
+
+// My solution
+
+var fizzBuzzCustom = function(stringOne, stringTwo, numOne, numTwo) {
+  if( stringOne=== undefined ){
+     stringOne ="Fizz"
+  }
+  if( stringTwo=== undefined ){
+     stringTwo ="Buzz"
+  }
+  if( numOne===undefined ){
+     numOne =3
+  }
+ if( numTwo=== undefined ){
+     numTwo =5
+  }
+ 
+  let arr=[]
+  for(let i=1;i<101;i++){
+     if(i%numTwo==0 && i%numOne==0){
+      arr.push(stringOne.concat(stringTwo))
+    }else  if(i%numTwo==0){
+      arr.push(stringTwo)
+    }else if(i%numOne==0){
+      arr.push(stringOne)
+    }else{
+      arr.push(i)
+    }
+  }
+  
+  return arr
+};
