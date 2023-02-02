@@ -1,0 +1,44 @@
+/*
+DESCRIPTION:
+Write a simple parser that will parse and run Deadfish.
+
+Deadfish has 4 commands, each 1 character long:
+
+i increments the value (initially 0)
+d decrements the value
+s squares the value
+o outputs the value into the return array
+Invalid characters should be ignored.
+
+parse("iiisdoso") => [ 8, 64 ]
+*/
+
+function productFib(prod){
+  let fibNum=[0,1]
+  for(let i=0;i<prod/2;i++){
+    fibNum.push(fibNum[i]+fibNum[i+1])
+  }
+  let res=[]
+  for(let i =0;i<fibNum.length;i++){
+    let div=prod%fibNum[i]
+    if(div===0){
+      res.push([prod/fibNum[i],fibNum[i]])
+    }
+  }
+  
+  let son= res.filter((e,i)=>{
+    if(fibNum.indexOf(e[0])+1==fibNum.indexOf(e[1])) return e
+  })
+  if(son.length>0) return son.flat()
+}DESCRIPTION:
+Write a simple parser that will parse and run Deadfish.
+
+Deadfish has 4 commands, each 1 character long:
+
+i increments the value (initially 0)
+d decrements the value
+s squares the value
+o outputs the value into the return array
+Invalid characters should be ignored.
+
+parse("iiisdoso") => [ 8, 64 ]
